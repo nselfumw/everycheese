@@ -29,6 +29,10 @@ urlpatterns = [
         'cheeses/',
         include('everycheese.cheeses.urls', namespace='cheeses'),
     ),
+    path(
+        'books/',
+        include('everycheese.books.urls', namespace='books'),
+    ),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:

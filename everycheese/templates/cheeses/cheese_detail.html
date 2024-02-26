@@ -11,6 +11,7 @@
 {% endif %}
 
 {% if cheese.description %}
+    <h4>Description</h4>
     <p>{{ cheese.description }}</p>
 {% endif %}
 
@@ -18,5 +19,24 @@
     <p>Country of Origin: {{ cheese.country_of_origin.name }} <img src="{{ cheese.country_of_origin.flag }}" />
 </p>
 {% endif %}
+
+<hr/>
+<h3>
+    Submitted by
+    <a href="{% url 'users:detail' cheese.creator.username %}">
+        {{ cheese.creator.username }}
+    </a>
+</h3>
+
+{% if cheese.creator.name %}
+    <p>{{ cheese.creator.name }}</p>
+{% endif %}
+
+
+<p>
+    <a class="btn btn-primary"
+    href="{% url 'cheeses:update' cheese.slug %}" role="button">
+    Update
+    </a> </p>
 
 {% endblock content %}

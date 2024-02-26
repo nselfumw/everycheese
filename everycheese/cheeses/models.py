@@ -1,9 +1,9 @@
+from django.conf import settings
 from django.db import models
 from django.urls import reverse
 
 from autoslug import AutoSlugField
 from model_utils.models import TimeStampedModel
-
 from django_countries.fields import CountryField
 
 
@@ -24,6 +24,12 @@ class Cheese(TimeStampedModel):
         "Country of Origin",
         blank=True
     )
+    creator = models.ForeignKey(
+        settings.AUTH_USER_MODEL, 
+        null=True,
+        on_delete=models.SET_NULL
+    )
+    flavor = models.TextField("Flavor", blank=True)
 
     def get_absolute_url(self):
         """Return absolute URL to the Cheese Detail page.""" 

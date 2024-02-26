@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Books: {{ book.title }}{% endblock title %}
+
+{% block content %}
+
+<h2>{{ book.title }}</h2>
+
+
+<p>By <a href="{% url 'books:author-detail' book.author.slug %}">{{ book.author.first }} {{book.author.last}}</a></p>
+
+{% if book.blurb %}
+    <p>{{ book.blurb }}</p>
+{% endif %}
+
+{% endblock content %}
