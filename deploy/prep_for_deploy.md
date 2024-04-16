@@ -18,7 +18,8 @@ export DJANGO\_SETTINGS\_MODULE=config.settings.production
 
 *   comment out caches section
 *   comment out mailgun section
-*   add WHITENOISE\_MANIFEST\_STRICT = False
+*   add WHITENOISE_MANIFEST_STRICT = False
+    * This tells your project to return 404s if your code requests a non-existent static file. Without this, it will raise a server error
 
 ### Change requirements/production.txt
 
@@ -47,15 +48,15 @@ pip install -r requirements/production.txt
 *   at root of repository, change database\_url and allowed\_hosts to your values
 *   format of database\_url is mariadb://<databaseUserName>:<databasePassword>@localhost/<databaseName>
 ```
-DJANGO\_SECRET\_KEY=manyrandomlettersandnumbershere  
-DATABASE\_URL=mysql://nself:password@localhost/nself  
-DJANGO\_ADMIN\_URL=notthewordadmin  
-DJANGO\_ALLOWED\_HOSTS=everycheese.selfontheinter.net
+DJANGO_SECRET_KEY=manyrandomlettersandnumbershere  
+DATABASE_URL=mysql://nself:password@localhost/nself  
+DJANGO_ADMIN_URL=notthewordadmin  
+DJANGO_ALLOWED_HOSTS=everycheese.selfontheinter.net
 ```
 
 ### Initialize database
 ```
-export DJANGO\_SETTINGS\_MODULE=config.settings.production  
+export DJANGO_SETTINGS_MODULE=config.settings.production  
 ./manage.py migrate  
 ./manage.py collectstatic  
 ./manage.py createsuperuser
