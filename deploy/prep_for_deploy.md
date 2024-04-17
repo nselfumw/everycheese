@@ -3,7 +3,7 @@
 If you stop your terminal session and need to restart you probably need to run two commands first:
 ```
 source ~/.venvs/django/bin/activate  
-export DJANGO\_SETTINGS\_MODULE=config.settings.production
+export DJANGO_SETTINGS_MODULE=config.settings.production
 ```
 ### Set up DNS
 
